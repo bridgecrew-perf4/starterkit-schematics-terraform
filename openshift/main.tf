@@ -11,7 +11,8 @@ resource "ibm_resource_instance" "cos_instance" {
 }
 
 resource "ibm_container_vpc_cluster" "cluster" {
-  name              = "cocp-${var.project}-${var.environment}-001"
+  count             = var.cluster_count
+  name              = "cocp-${var.project}-${var.environment}-00${count.index + 1}"
   vpc_id            = ibm_is_vpc.vpc_openshift.id 
   cos_instance_crn  = ibm_resource_instance.cos_instance.id
   kube_version      = var.kube_version
