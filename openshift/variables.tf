@@ -49,3 +49,8 @@ variable "worker_count" {
     default = "3"
     description = "Cantidad de Workers"
 }
+
+variable "cluster_count" {
+    default = "1"
+    description = "Cantidad de Clusters"
+}
