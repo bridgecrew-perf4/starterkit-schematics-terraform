@@ -3,6 +3,11 @@ variable "ibmcloud_api_key" {
     description = "Apikey Requerido para crear componentes"
 }
 
+variable "resource_group_name" {
+    default = ""
+    description = "Nombre del rg donde se desea crear los recursos o dejar en blanco para crear uno nuevo"
+}
+
 variable "members" {
     type = list
     default = ["example@gmail.com", "example@ibm.com"]

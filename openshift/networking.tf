@@ -1,7 +1,7 @@
 #Solo 10 VPC por region
 resource "ibm_is_vpc" "vpc_openshift" {
   name = "vpc-${var.project}-${var.environment}-001"
-  resource_group = ibm_resource_group.resourceGroup.id
+  resource_group = data.ibm_resource_group.resourceGroup.id
 }
 
 data "ibm_is_vpc_default_routing_table" "vpc_routing_table" {
@@ -34,7 +34,7 @@ resource "ibm_is_public_gateway" "publicgateway" {
   name = "pgw-${var.project}-${var.environment}-001"
   vpc  = ibm_is_vpc.vpc_openshift.id
   zone = var.zone
-  resource_group = ibm_resource_group.resourceGroup.id
+  resource_group = data.ibm_resource_group.resourceGroup.id
 
   timeouts {
     create = "90m"
@@ -48,7 +48,7 @@ resource "ibm_is_subnet" "vpc_subnet" {
   ipv4_cidr_block = var.cdir
   routing_table   = data.ibm_is_vpc_default_routing_table.vpc_routing_table.default_routing_table
   public_gateway  = ibm_is_public_gateway.publicgateway.id
-  resource_group = ibm_resource_group.resourceGroup.id
+  resource_group = data.ibm_resource_group.resourceGroup.id
 
   timeouts {
     create = "90m"
