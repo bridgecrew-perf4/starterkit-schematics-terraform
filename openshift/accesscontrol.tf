@@ -7,7 +7,7 @@ resource "ibm_iam_access_group" "accessgroup" {
 #Tipos de roles disponibles: ["Administrator","Manager","Viewer", "Writer", "Operator","Reader","Editor"]
 resource "ibm_iam_access_group_policy" "policyk8s" {
   count = var.resource_group_name != "" ? 0 : 1
-  access_group_id = ibm_iam_access_group.accessgroup.id
+  access_group_id = ibm_iam_access_group.accessgroup[count.index].id
   roles           = ["Administrator", "Manager"]
   resources { 
       service = "containers-kubernetes"
@@ -17,7 +17,7 @@ resource "ibm_iam_access_group_policy" "policyk8s" {
 
 resource "ibm_iam_access_group_policy" "policycos" {
   count = var.resource_group_name != "" ? 0 : 1
-  access_group_id = ibm_iam_access_group.accessgroup.id
+  access_group_id = ibm_iam_access_group.accessgroup[count.index].id
   roles           = ["Manager"]
   resources { 
       service = "cloud-object-storage"
@@ -27,7 +27,7 @@ resource "ibm_iam_access_group_policy" "policycos" {
 
 resource "ibm_iam_access_group_policy" "policycr" {
   count = var.resource_group_name != "" ? 0 : 1
-  access_group_id = ibm_iam_access_group.accessgroup.id
+  access_group_id = ibm_iam_access_group.accessgroup[count.index].id
   roles           = ["Administrator"]
   resources { 
       service = "container-registry"
@@ -36,7 +36,7 @@ resource "ibm_iam_access_group_policy" "policycr" {
 
 resource "ibm_iam_access_group_policy" "policyisvpc" {
   count = var.resource_group_name != "" ? 0 : 1
-  access_group_id = ibm_iam_access_group.accessgroup.id
+  access_group_id = ibm_iam_access_group.accessgroup[count.index].id
   roles           = ["Administrator"]
   resources {
     service = "is"
@@ -46,7 +46,7 @@ resource "ibm_iam_access_group_policy" "policyisvpc" {
 
 resource "ibm_iam_access_group_policy" "policycm" {
   count = var.resource_group_name != "" ? 0 : 1
-  access_group_id = ibm_iam_access_group.accessgroup.id
+  access_group_id = ibm_iam_access_group.accessgroup[count.index].id
   roles           = ["Administrator", "Operator"] 
   resources {
     service = "cloudcerts"
@@ -56,7 +56,7 @@ resource "ibm_iam_access_group_policy" "policycm" {
 
 resource "ibm_iam_access_group_policy" "policyrg" {
   count = var.resource_group_name != "" ? 0 : 1
-  access_group_id = ibm_iam_access_group.accessgroup.id
+  access_group_id = ibm_iam_access_group.accessgroup[count.index].id
   roles           = ["Viewer"]
   resources {
     resource_type = "resource-group"
@@ -66,6 +66,6 @@ resource "ibm_iam_access_group_policy" "policyrg" {
 
 resource "ibm_iam_access_group_members" "accessgroupmembers" {
   count = var.resource_group_name != "" ? 0 : 1
-  access_group_id = ibm_iam_access_group.accessgroup.id
+  access_group_id = ibm_iam_access_group.accessgroup[count.index].id
   ibm_ids         = var.members
 }
