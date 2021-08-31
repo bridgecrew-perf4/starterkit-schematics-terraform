@@ -2,7 +2,7 @@
 resource "ibm_is_vpc" "vpc_openshift" {
   name = "vpc-${var.project}-${var.environment}-001"
   resource_group = data.ibm_resource_group.resourceGroup.id
-  tags = [ var.project, var.members[0] ]
+  tags = var.tags
 }
 
 data "ibm_is_vpc_default_routing_table" "vpc_routing_table" {

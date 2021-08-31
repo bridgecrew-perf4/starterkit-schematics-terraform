@@ -14,6 +14,12 @@ variable "members" {
     description = "Usuarios que perteneceran al grupo de accesos"
 }
 
+variable "tags" {
+    type = list
+    default = ["project", "owner"]
+    description = "Tags para identificar componentes"
+}
+
 variable "project" {
     default = "demo"
     description = "Nombre del proyecto para el cual se crea el cluster"
