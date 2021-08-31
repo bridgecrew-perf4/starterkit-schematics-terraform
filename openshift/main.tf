@@ -13,6 +13,7 @@ resource "ibm_resource_instance" "cos_instance" {
   service           = "cloud-object-storage"
   plan              = "standard"
   location          = "global"
+  tags = [ var.project, var.members[0] ]
 }
 
 resource "ibm_container_vpc_cluster" "cluster" {
@@ -25,6 +26,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
   worker_count      = var.worker_count
   resource_group_id = data.ibm_resource_group.resourceGroup.id
   wait_till         = "OneWorkerNodeReady"
+  tags = [ var.project, var.members[0] ]
   zones {
       subnet_id = ibm_is_subnet.vpc_subnet.id
       name      = var.zone
