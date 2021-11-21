@@ -2,13 +2,12 @@ terraform {
      required_providers {
       ibm = {
         source = "IBM-Cloud/ibm"
-        version = "1.30.1"
+        version = "1.36.0"
       }
      }
   }
 
 provider "ibm" {
-  generation       = "2"
   region           = var.region
   ibmcloud_api_key = var.ibmcloud_api_key
 }
