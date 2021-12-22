@@ -35,11 +35,12 @@ resource "ibm_container_vpc_cluster" "cluster" {
 
 
 resource "ibm_container_vpc_worker_pool" "df_wpool" {
-  cluster          = ibm_container_vpc_cluster.cluster.id
+  cluster          = ibm_container_vpc_cluster.cluster[count.index].id
   worker_pool_name = "df_wpool"
   flavor           = "bx2.16x64"
   vpc_id           = ibm_is_vpc.vpc_openshift.id
-  worker_count     = "3"
+  worker_count     = "1"
+  resource_group_id = data.ibm_resource_group.resourceGroup.id
 
   zones {
       subnet_id = ibm_is_subnet.vpc_subnet.id
