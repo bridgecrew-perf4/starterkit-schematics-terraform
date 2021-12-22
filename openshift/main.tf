@@ -34,13 +34,12 @@ resource "ibm_container_vpc_cluster" "cluster" {
 }
 
 
-resource "ibm_container_vpc_worker_pool" "odf_wpool" {
+resource "ibm_container_vpc_worker_pool" "df_wpool" {
   cluster          = ibm_container_vpc_cluster.cluster.id
-  worker_pool_name = "odf_wpool"
+  worker_pool_name = "df_wpool"
   flavor           = "bx2.16x64"
   vpc_id           = ibm_is_vpc.vpc_openshift.id
   worker_count     = "3"
-  entitlement      = ""
 
   zones {
       subnet_id = ibm_is_subnet.vpc_subnet.id
