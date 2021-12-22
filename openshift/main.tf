@@ -37,7 +37,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
 //ODF
 
 resource "ibm_container_vpc_worker_pool" "odf_wpool" {
-  cluster          = ibm_container_vpc_cluster.cluster.name
+  cluster          = ibm_container_vpc_cluster.cluster.id
   worker_pool_name = "odf_wpool"
   flavor           = "bx2.16x64"
   vpc_id           = ibm_is_vpc.vpc_openshift.id
