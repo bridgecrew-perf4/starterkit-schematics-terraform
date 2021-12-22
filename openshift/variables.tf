@@ -65,8 +65,3 @@ variable "cluster_count" {
     default = "1"
     description = "Cantidad de Clusters"
 }
-
-variable "ODF" {
-    default = false
-    description = "Cantidad de Clusters"
-}

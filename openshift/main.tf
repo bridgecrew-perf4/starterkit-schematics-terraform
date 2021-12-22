@@ -37,7 +37,6 @@ resource "ibm_container_vpc_cluster" "cluster" {
 //ODF
 
 resource "ibm_container_vpc_worker_pool" "odf_wpool" {
-  count = var.ODF != true ? 0 : 1
   cluster          = ibm_container_vpc_cluster.cluster.name
   worker_pool_name = "odf_wpool"
   flavor           = "bx2.16x64"
