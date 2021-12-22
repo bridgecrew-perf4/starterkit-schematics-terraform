@@ -34,8 +34,6 @@ resource "ibm_container_vpc_cluster" "cluster" {
 }
 
 
-#ODF
-
 resource "ibm_container_vpc_worker_pool" "odf_wpool" {
   cluster          = ibm_container_vpc_cluster.cluster.id
   worker_pool_name = "odf_wpool"
