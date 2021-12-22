@@ -32,3 +32,21 @@ resource "ibm_container_vpc_cluster" "cluster" {
       name      = var.zone
     }
 }
+
+
+//ODF
+
+resource "ibm_container_vpc_worker_pool" "odf_wpool" {
+  count = var.ODF != true ? 0 : 1
+  cluster          = ibm_container_vpc_cluster.cluster.name
+  worker_pool_name = "odf_wpool"
+  flavor           = "bx2.16x64"
+  vpc_id           = ibm_is_vpc.vpc_openshift.id
+  worker_count     = "3"
+  entitlement      = ""
+
+  zones {
+      subnet_id = ibm_is_subnet.vpc_subnet.id
+      name      = var.zone
+    }
+}

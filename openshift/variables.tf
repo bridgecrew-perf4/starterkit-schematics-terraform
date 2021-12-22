@@ -37,7 +37,7 @@ variable "zone" {
 }
 #Elegir version de openshift obtenida con ibmcloud ks versions
 variable "kube_version" {
-    default = "4.6.16_openshift"
+    default = "4.8.21_openshift"
     description = "Version de openshift - ejecutar ibmcloud ks versions para obtener la ultima version"
 }
 #Elegir flavor de la lista obtenida con ibmcloud ks flavors --zone eu-de-3
@@ -63,5 +63,10 @@ variable "worker_count" {
 
 variable "cluster_count" {
     default = "1"
+    description = "Cantidad de Clusters"
+}
+
+variable "ODF" {
+    default = false
     description = "Cantidad de Clusters"
 }
