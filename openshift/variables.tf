@@ -65,3 +65,8 @@ variable "cluster_count" {
     default = "1"
     description = "Cantidad de Clusters"
 }
+
+variable "entitlement_wp" {
+    default = ""
+    description = "Entitlement del Worker pool"
+}

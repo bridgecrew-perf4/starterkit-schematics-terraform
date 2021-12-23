@@ -33,7 +33,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
     }
 }
 
-
+#openshift data foundation
 resource "ibm_container_vpc_worker_pool" "df_wpool" {
   cluster          = ibm_container_vpc_cluster.cluster[0].id
   worker_pool_name = "df_wpool"
@@ -41,7 +41,7 @@ resource "ibm_container_vpc_worker_pool" "df_wpool" {
   vpc_id           = ibm_is_vpc.vpc_openshift.id
   worker_count     = "3"
   resource_group_id = data.ibm_resource_group.resourceGroup.id
-  entitlement      = ""
+  entitlement      = var.entitlement_wp
   zones {
       subnet_id = ibm_is_subnet.vpc_subnet.id
       name      = var.zone

@@ -1,4 +1,4 @@
-/*output "albs" {
-  value       = ibm_container_vpc_cluster.cluster.albs
-  description = "obtener el albs creado"
-}*/
+output "ClusterODF" {
+  value       = ibm_container_vpc_cluster.cluster[0].id
+  description = "Id del Cluster con ODF"
+}
