@@ -39,9 +39,9 @@ resource "ibm_container_vpc_worker_pool" "df_wpool" {
   worker_pool_name = "df_wpool"
   flavor           = "bx2.16x64"
   vpc_id           = ibm_is_vpc.vpc_openshift.id
-  worker_count     = "1"
+  worker_count     = "3"
   resource_group_id = data.ibm_resource_group.resourceGroup.id
-
+  entitlement      = ""
   zones {
       subnet_id = ibm_is_subnet.vpc_subnet.id
       name      = var.zone
