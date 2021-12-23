@@ -35,7 +35,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
 
 
 resource "ibm_container_vpc_worker_pool" "df_wpool" {
-  cluster          = "cocp-${var.project}-${var.environment}-00${count.index + 1}"
+  cluster          = ibm_container_vpc_cluster.cluster[0].id
   worker_pool_name = "df_wpool"
   flavor           = "bx2.16x64"
   vpc_id           = ibm_is_vpc.vpc_openshift.id
