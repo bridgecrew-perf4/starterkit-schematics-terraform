@@ -4,7 +4,7 @@ variable "ibmcloud_api_key" {
 }
 
 variable "resource_group_name" {
-    default = ""
+    default = " "
     description = "Nombre del rg donde se desea crear los recursos o dejar en blanco para crear uno nuevo"
 }
 

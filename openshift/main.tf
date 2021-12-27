@@ -1,10 +1,10 @@
 resource "ibm_resource_group" "rg" {
-  count = var.resource_group_name != "" ? 0 : 1
-  name     = var.resource_group_name != "" ? var.resource_group_name : "rg-${var.project}-${var.environment}"
+  count = var.resource_group_name != " " ? 0 : 1
+  name     = var.resource_group_name != " " ? var.resource_group_name : "rg-${var.project}-${var.environment}"
 }
 
 data "ibm_resource_group" "resourceGroup" {
-  name = var.resource_group_name != "" ? var.resource_group_name : "rg-${var.project}-${var.environment}"
+  name = var.resource_group_name != " " ? var.resource_group_name : "rg-${var.project}-${var.environment}"
 }
 
 resource "ibm_resource_instance" "cos_instance" {
