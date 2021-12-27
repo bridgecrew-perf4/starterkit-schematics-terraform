@@ -4,7 +4,7 @@ resource "ibm_resource_group" "rg" {
 }
 
 data "ibm_resource_group" "resourceGroup" {
-  name = var.resource_group_name != " " ? var.resource_group_name : ibm_resource_group.rg.name[count.index]
+  name = var.resource_group_name != " " ? var.resource_group_name : ibm_resource_group.rg[0].name
 }
 
 resource "ibm_resource_instance" "cos_instance" {
