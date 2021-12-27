@@ -24,6 +24,7 @@ resource "ibm_container_vpc_cluster" "cluster" {
   kube_version      = var.kube_version
   flavor            = var.flavor
   worker_count      = var.worker_count
+  entitlement       = var.entitlement_wp
   resource_group_id = data.ibm_resource_group.resourceGroup.id
   wait_till         = "OneWorkerNodeReady"
   tags = var.tags
