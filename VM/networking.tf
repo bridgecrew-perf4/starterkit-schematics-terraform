@@ -11,7 +11,7 @@ resource ibm_is_security_group "vpc_security_group" {
 }
 
 resource "ibm_is_security_group_rule" "ingress_ssh_all" {
-  group     = data.ibm_is_security_group.vpc_security_group.id
+  group     = ibm_is_security_group.vpc_security_group.id
   direction = "inbound"
   remote    = "0.0.0.0/0"
 
