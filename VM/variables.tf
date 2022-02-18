@@ -38,13 +38,13 @@ variable "zone" {
 
 #ibmcloud is images
 variable "image" {
-    default = "ibm-redhat-8-2-minimal-amd64-4"
+    default = "ibm-redhat-8-4-minimal-amd64-2"
     description = "Imagen que se usara para la VM"
 }
 
 #ibmcloud is instance-profiles
 variable "profile" {
-    default = "bx2-8x32"
+    default = "bx2-16x64"
     description = "profil de la VM"
 }
 
