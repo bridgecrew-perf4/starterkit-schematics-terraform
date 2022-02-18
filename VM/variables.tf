@@ -24,16 +24,16 @@ variable "environment" {
     description = "Ambiente para el cual se crea el cluster"
 }
 
-#ibmcloud is zones
-variable "zone" {
-    default = "eu-de-3"
-    description = "Zona donde se crearan los recursos"
-}
-
 #ibmcloud is regions
 variable "region" {
-    default = "eu-de"
+    default = "us-south"
     description = "Region donde se crearan los componentes"
+}
+
+#ibmcloud is zones
+variable "zone" {
+    default = "us-south-3"
+    description = "Zona donde se crearan los recursos"
 }
 
 #Ejecutar ibmcloud is images y tomar el valor de OS name
@@ -49,6 +49,7 @@ variable "profile" {
 }
 
 #ibmcloud is keys
+#https://cloud.ibm.com/vpc-ext/compute/sshKeys
 variable "key" {
     type = list
     default = [""]
