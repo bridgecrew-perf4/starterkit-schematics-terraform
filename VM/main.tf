@@ -24,6 +24,12 @@ resource ibm_is_instance "vm" {
     subnet          = ibm_is_subnet.vpc_subnet.id
     security_groups = ["${ibm_is_security_group.vpc_security_group.id}"]
   }
+
+  network_interfaces {
+    name   = "eth1"
+    subnet = ibm_is_subnet.vpc_subnet.id
+    allow_ip_spoofing = false
+  }
 }
 
 
