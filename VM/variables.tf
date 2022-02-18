@@ -36,9 +36,9 @@ variable "zone" {
     description = "Zona donde se crearan los recursos"
 }
 
-#Ejecutar ibmcloud is images y tomar el valor de OS name
+#ibmcloud is images
 variable "image" {
-    default = "red-8-amd64"
+    default = "ibm-redhat-8-2-minimal-amd64-4"
     description = "Imagen que se usara para la VM"
 }
 
