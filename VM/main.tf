@@ -16,11 +16,11 @@ resource ibm_is_instance "vm" {
   resource_group = data.ibm_resource_group.resourceGroup.id
   vpc     = ibm_is_vpc.vpc_vm.id
   zone    = var.zone
-  keys    = ["${var.key}"]
+  keys    = var.key
   image   = data.ibm_is_image.image_vm.id
   profile = var.profile
 
-  primary_network_interface = {
+  primary_network_interface {
     subnet          = ibm_is_subnet.vpc_subnet.id
     security_groups = ["${ibm_is_security_group.vpc_security_group.id}"]
   }
