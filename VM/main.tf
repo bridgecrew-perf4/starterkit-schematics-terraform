@@ -11,7 +11,7 @@ data ibm_is_image "image_vm" {
   name = var.image
 }
 
-resource ibm_is_instance "vpc_vm" {
+resource ibm_is_instance "vm" {
   name    = "vm-${var.project}-${var.environment}-001"
   resource_group = data.ibm_resource_group.resourceGroup.id
   vpc     = ibm_is_vpc.vpc_vm.id

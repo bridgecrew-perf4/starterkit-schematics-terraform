@@ -1,5 +1,5 @@
 output sshcommand {
-  value = "ssh root@${ibm_is_floating_ip.fip.address}"
+  value = "ssh root@${ibm_is_floating_ip.vpc_fip.address}"
 }
 
 output vpc_id {
