@@ -6,12 +6,12 @@ resource "ibm_is_vpc" "vpc_vm" {
 }
 
 resource ibm_is_security_group "vpc_security_group" {
-  name = data.ibm_resource_group.resourceGroup.id
+  name = "sg-${var.project}-${var.environment}-001"
   vpc  = ibm_is_vpc.vpc_vm.id
 }
 
 resource "ibm_is_security_group_rule" "ingress_ssh_all" {
-  group     = data.ibm_resource_group.resourceGroup.id
+  group     = data.ibm_is_security_group.vpc_security_group.id
   direction = "inbound"
   remote    = "0.0.0.0/0"
 

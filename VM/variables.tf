@@ -48,7 +48,6 @@ variable "profile" {
     description = "profil de la VM"
 }
 
-#ibmcloud is keys
 #https://cloud.ibm.com/vpc-ext/compute/sshKeys
 variable "key" {
     type = list
