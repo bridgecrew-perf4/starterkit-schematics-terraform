@@ -8,6 +8,7 @@ terraform {
   }
 
 provider "ibm" {
-  region           = var.region
+  region           = element(var.region, count.index)
+  #var.region
   ibmcloud_api_key = var.ibmcloud_api_key
 }
