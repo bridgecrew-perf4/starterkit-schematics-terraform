@@ -34,4 +34,31 @@ resource ibm_is_instance "vm" {
 }
 */
 
+resource "ibm_is_instance" "example" {
+  name    = "vm-${var.project}-${var.environment}-001"
+  image   = data.ibm_is_image.image_vm.id
+  profile = var.profile
 
+  primary_network_interface {
+    subnet = ibm_is_subnet.vpc_subnet.id
+#    primary_ipv4_address = "10.240.0.6"
+    allow_ip_spoofing = true
+  }
+
+  network_interfaces {
+    name   = "eth0"
+    subnet = ibm_is_subnet.vpc_subnet.id
+    allow_ip_spoofing = false
+  }
+
+  vpc  = ibm_is_vpc.vpc_vm.id
+  zone = var.zone
+  keys = var.key
+
+  //User can configure timeouts
+  timeouts {
+    create = "15m"
+    update = "15m"
+    delete = "15m"
+  }
+}

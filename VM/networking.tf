@@ -25,7 +25,7 @@ resource ibm_is_subnet "vpc_subnet" {
   name = "subnet-${var.project}-${var.environment}-001"
   vpc  = ibm_is_vpc.vpc_vm.id
   zone = var.zone
-  total_ipv4_address_count = 256
+  ipv4_cidr_block = "10.240.0.0/24"
 }
 
 /*
