@@ -58,6 +58,6 @@ variable "key" {
 #ibmcloud is vpc-address-prefixes <VPC Name>
 
 variable "cdir" {
-    default = "10.241.128.0/24"
+    default = "10.240.128.0/18"
     description = "Rango de IPs"
 }
