@@ -10,9 +10,11 @@ resource ibm_is_subnet "vpc_subnet" {
   vpc  = ibm_is_vpc.vpc_vm.id
   zone = var.zone
   ipv4_cidr_block = var.cdir
+  resource_group = data.ibm_resource_group.resourceGroup.id
 }
 
 resource ibm_is_floating_ip "vpc_fip" {
   name   = "fip-${var.project}-${var.environment}-001"
   target = ibm_is_instance.vpc_vsi.primary_network_interface.0.id
+  resource_group = data.ibm_resource_group.resourceGroup.id
 }
