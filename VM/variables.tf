@@ -54,3 +54,10 @@ variable "key" {
     default = [""]
     description = "ID Keys"
 }
+
+#ibmcloud is vpc-address-prefixes <VPC Name>
+
+variable "cdir" {
+    default = "10.241.128.0/24"
+    description = "Rango de IPs"
+}
