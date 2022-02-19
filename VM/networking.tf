@@ -30,9 +30,8 @@ resource "ibm_is_security_group_rule" "ingress_ssh_all" {
 
 
 
-/*
+
 resource ibm_is_floating_ip "vpc_fip" {
   name   = "fip-${var.project}-${var.environment}-001"
-  target = ibm_is_instance.vm.primary_network_interface.0.id
+  target = ibm_is_instance.vpc_vsi.primary_network_interface.0.id
 }
-*/

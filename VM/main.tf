@@ -45,12 +45,13 @@ resource "ibm_is_instance" "vpc_vsi" {
     allow_ip_spoofing = false
   }
 
+/*
   network_interfaces {
     name   = "eth1"
     subnet = ibm_is_subnet.vpc_subnet.id
     allow_ip_spoofing = false
   }
-
+*/
   vpc  = ibm_is_vpc.vpc_vm.id
   zone = var.zone
   keys = var.key
