@@ -34,7 +34,7 @@ resource ibm_is_instance "vm" {
 }
 */
 
-resource "ibm_is_instance" "example" {
+resource "ibm_is_instance" "vpc_vsi" {
   name    = "vm-${var.project}-${var.environment}-001"
   image   = data.ibm_is_image.image_vm.id
   profile = var.profile
@@ -42,11 +42,11 @@ resource "ibm_is_instance" "example" {
   primary_network_interface {
     subnet = ibm_is_subnet.vpc_subnet.id
 #    primary_ipv4_address = "10.240.0.6"
-    allow_ip_spoofing = true
+    allow_ip_spoofing = false
   }
 
   network_interfaces {
-    name   = "eth0"
+    name   = "eth1"
     subnet = ibm_is_subnet.vpc_subnet.id
     allow_ip_spoofing = false
   }
