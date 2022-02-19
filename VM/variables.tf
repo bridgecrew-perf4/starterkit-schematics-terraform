@@ -65,3 +65,8 @@ variable "cdir" {
     default = "10.240.128.0/18"
     description = "Rango de IPs"
 }
+
+variable "cant_vpc" {
+    default = "2"
+    description = "Cantidad de Workers"
+}
