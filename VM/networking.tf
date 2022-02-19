@@ -12,13 +12,16 @@ resource ibm_is_subnet "vpc_subnet" {
   ipv4_cidr_block = var.cdir
 }
 
+/*
 resource ibm_is_security_group "vpc_security_group" {
   name = "sg-${var.project}-${var.environment}-001"
   vpc  = ibm_is_vpc.vpc_vm.id
 }
+*/
 
 resource "ibm_is_security_group_rule" "ingress_ssh_all" {
-  group     = ibm_is_security_group.vpc_security_group.id
+#  group     = ibm_is_security_group.vpc_security_group.id
+  group     = ibm_is_vpc.security_group.id
   direction = "inbound"
   remote    = "0.0.0.0/0"
 
@@ -27,9 +30,6 @@ resource "ibm_is_security_group_rule" "ingress_ssh_all" {
     port_max = 22
   }
 }
-
-
-
 
 resource ibm_is_floating_ip "vpc_fip" {
   name   = "fip-${var.project}-${var.environment}-001"
