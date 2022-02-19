@@ -28,7 +28,9 @@ resource ibm_is_subnet "vpc_subnet" {
   total_ipv4_address_count = 256
 }
 
+/*
 resource ibm_is_floating_ip "vpc_fip" {
   name   = "fip-${var.project}-${var.environment}-001"
-#  target = ibm_is_instance.vm.primary_network_interface.0.id
+  target = ibm_is_instance.vm.primary_network_interface.0.id
 }
+*/
