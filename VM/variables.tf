@@ -66,7 +66,7 @@ variable "cdir" {
     description = "Rango de IPs"
 }
 
-variable "cant_vpc" {
-    default = "2"
-    description = "Cantidad de Workers"
+variable "cant_vsi" {
+    default = "1"
+    description = "Cantidad de VSI a crear"
 }
