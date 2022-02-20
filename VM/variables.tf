@@ -26,17 +26,14 @@ variable "environment" {
 
 #ibmcloud is regions
 variable "region" {
-    type = list
-    default = ["us-south"]
-#    default = "us-south"
+
+    default = "us-south"
     description = "Region donde se crearan los componentes"
 }
 
 #ibmcloud is zones
 variable "zone" {
-    type = list
-    default = ["us-south-3"]
-#   default = "us-south-3"
+    default = "us-south-3"
     description = "Zona donde se crearan los recursos"
 }
 
