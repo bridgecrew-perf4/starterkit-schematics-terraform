@@ -16,6 +16,6 @@ resource ibm_is_subnet "vpc_subnet" {
 
 resource ibm_is_floating_ip "vpc_fip" {
   name   = "fip-${var.project}-${var.environment}-001"
-  target = ibm_is_instance.vpc_vsi.primary_network_interface.0.id
+  target = ibm_is_instance.vpc_vsi.0.primary_network_interface.0.id
   resource_group = data.ibm_resource_group.resourceGroup.id
 }
