@@ -14,6 +14,19 @@ resource ibm_is_subnet "vpc_subnet" {
   resource_group = data.ibm_resource_group.resourceGroup.id
 }
 
+data "ibm_is_security_group" "vpc_security_group" {
+    name = ibm_is_vpc.vpc_vm.security_group[0].group_name
+}
+
+resource "ibm_is_security_group_rule" "security_group_rule_tcp" {
+  group     = data.ibm_is_security_group.vpc_security_group.id
+  direction = "inbound"
+  tcp {
+    port_min = 22
+    port_max = 22
+  }
+}
+
 resource ibm_is_floating_ip "vpc_fip" {
   name   = "fip-${var.project}-${var.environment}-001"
   target = ibm_is_instance.vpc_vsi.0.primary_network_interface.0.id

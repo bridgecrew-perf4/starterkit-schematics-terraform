@@ -49,7 +49,9 @@ variable "profile" {
     description = "profil de la VM"
 }
 
+#https://cloud.ibm.com/docs/vpc?topic=vpc-ssh-keys#locating-ssh-keys
 #https://cloud.ibm.com/vpc-ext/compute/sshKeys
+
 variable "key" {
     type = list
     default = [""]
