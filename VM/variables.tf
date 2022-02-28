@@ -69,3 +69,8 @@ variable "cant_vsi" {
     default = "1"
     description = "Cantidad de VSI a crear"
 }
+
+variable "primary_ipv4_address" {
+    default = "10.240.128.6"
+    description = "IP Privada"
+}

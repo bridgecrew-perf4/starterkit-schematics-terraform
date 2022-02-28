@@ -20,6 +20,7 @@ resource "ibm_is_instance" "vpc_vsi" {
   resource_group = data.ibm_resource_group.resourceGroup.id
   primary_network_interface {
     subnet = ibm_is_subnet.vpc_subnet.id
+    primary_ipv4_address = var.primary_ipv4_address
     allow_ip_spoofing = false
   }
 
